@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Dialog, Chat, Message
 from pyrogram.errors import UserAlreadyParticipant
 
-from callsmusic.callsmusic import client as Anonymous
+from callsmusic.callsmusic import client as iraa
 from config import SUDO_USERS
 
 @Client.on_message(filters.command(["broadcast", "gcast"]))
@@ -20,9 +20,9 @@ async def broadcast(_, message: Message):
             await wtf.edit("**__ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ​ ʙᴀʙʏ__**")
             return
         lmao = message.reply_to_message.text
-        async for dialog in Anonymous.iter_dialogs():
+        async for dialog in iraa.iter_dialogs():
             try:
-                await Anonymous.send_message(dialog.chat.id, lmao)
+                await iraa.send_message(dialog.chat.id, lmao)
                 sent = sent+1
                 await wtf.edit(f"`ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ...` \n\n**ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴛᴏ :** `{sent}` **ᴄʜᴀᴛs** \n**ꜰᴀɪʟᴇᴅ ɪɴ :** `{failed}` **ᴄʜᴀᴛs**")
                 await asyncio.sleep(0.3)
